@@ -70,13 +70,17 @@ table {
 .card__title {
 	font-size: 1.5rem;
 	font-weight: 500;
+	margin-bottom: 0.875rem;
+	font-weight: 700;
+	opacity: 0;
+	transition: 500ms cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .card__description {
 	font-size: 1rem;
 	line-height: 1.5;
 	position: absolute;
-	transition: 500ms cubic-bezier(0.77,0,0.18,1);
+	transition: 500ms cubic-bezier(0.65, 0, 0.35, 1);
 	opacity: 0;
 	padding: 1px;
 	overflow-y: scroll;
@@ -85,13 +89,6 @@ table {
 .cards__container {
 	display: flex;
 	height: 540px;
-}
-
-.card__title {
-	margin-bottom: 0.875rem;
-	font-weight: 700;
-	opacity: 0;
-	transition: 500ms cubic-bezier(0.77,0,0.18,1);
 }
 
 .card__text-content {
@@ -119,12 +116,13 @@ table {
 	flex-basis: 0;
 	padding: 2em;
 	position: relative;
-	transition: 500ms cubic-bezier(0.77,0,0.18,1);
+	transition: 500ms cubic-bezier(0.65, 0, 0.35, 1);
 	transition-delay: 250ms;
 }
 
 .cards__card.active {
 	flex-grow: 5;
+	transition-delay: 0ms;
 }
 
 .cards__card.active .card__description {
@@ -153,4 +151,20 @@ table {
 	padding: 1px;
 	overflow-y: scroll;
 	height: 60px;
+}
+
+
+@media only screen and (max-width:  768px) {
+	.cards {
+		width: fit-content;
+	}
+	.cards__container {
+		overflow: scroll;
+		width: fit-content;
+	}
+
+	.cards__card {
+		flex: 0 0 320px;
+		white-space: nowrap;
+	} 
 }
